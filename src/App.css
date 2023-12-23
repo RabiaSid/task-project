@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+}
+#root {
+  text-size-adjust: 100%;
+  letter-spacing: normal;
+  background-color: white;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+/* input */
+.input-field {
+  outline: none !important;
+}
+.input-field:hover {
+  border: 1px solid rgb(235, 236, 236);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* button */
+.hover-btn {
+  border-radius: 25px;
+  width: 350;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hover-btn:hover {
+  background: #ca4140 !important;
+  border-radius: 25px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* background Image */
+.background-image-1 {
+  background-image: url(../src/assets/beautiful-vintage-collage-composition.png);
+  background-repeat: no-repeat;
+  height: 90vh;
+  background-size: contain;
+  background-position: center;
 }
-
-.App-link {
-  color: #61dafb;
+/* fonts */
+.Poppins {
+  font-family: "Poppins", sans-serif;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Roboto-Slab {
+  font-family: "Roboto Slab", serif;
 }
