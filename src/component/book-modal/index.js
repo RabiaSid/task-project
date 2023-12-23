@@ -3,12 +3,10 @@ import PrimaryButton from "../button";
 import baseColors from "../../constant/index";
 import PrimaryModal from "../modal";
 import InputField from "../input-field";
-import SelectInput from "../select-input";
 import { PackageDetail } from "../../config/local-data";
-import MenuItem from "@mui/material/MenuItem";
 import { fbAdd } from "../../config/firebase/firebase-method";
 
-export default function PackageModal({ title }) {
+export default function BookModal({ title }) {
   const [model, setModel] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("");
@@ -40,6 +38,10 @@ export default function PackageModal({ title }) {
       newErrors.email = "Valid email is required";
     }
 
+    if (!model.Phone && !validatePhone(model.Phone)) {
+      newErrors.phone = "Valid phone number is required";
+    }
+
     if (!selectedPackage) {
       newErrors.packageName = "Package is required";
     }
@@ -56,7 +58,7 @@ export default function PackageModal({ title }) {
     if (validateForm()) {
       setModel({});
       console.log("model" + model);
-      fbAdd("package", model)
+      fbAdd("book", model)
         .then((res) => {
           console.log("resp" + res);
           setModel({
@@ -121,33 +123,8 @@ export default function PackageModal({ title }) {
             label="Enter Your Phone"
             value={model.Phone || ""}
             onChange={(e) => fillModel("Phone", e.target.value)}
-          />
-        </div>
-        <div className="my-1">
-          <SelectInput
-            label="Select Your Package Name"
-            HeaderValue="Package Name"
-            value={selectedPackage || ""}
-            onChange={(e) => handlePackageChange(e.target.value)}
-            error={errors.packageName}
-            helperText={errors.packageName ? errors.packageName : null}
-          >
-            {PackageDetail.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.packageName}
-              </MenuItem>
-            ))}
-          </SelectInput>
-        </div>
-
-        <div className="my-1">
-          <InputField
-            disabled={true}
-            label="Selected Package Price"
-            value={model.afterPrice || ""}
-            onChange={(e) => fillModel("afterPrice", e.target.value)}
-            error={errors.afterPrice}
-            helperText={errors.afterPrice ? errors.afterPrice : null}
+            error={errors.phone}
+            helperText={errors.phone ? errors.phone : null}
           />
         </div>
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@mui/material/Button";
 
 export default function PrimaryButton({
   color,
@@ -19,6 +18,7 @@ export default function PrimaryButton({
           background: background,
           // maxWidth: width ? width : "18vw",
           minHeight: "6vh",
+          minWidth: "8vw",
           // width: width,
         }}
         class="rounded-full text-sm 

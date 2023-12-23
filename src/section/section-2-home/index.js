@@ -1,27 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   portfolio1,
   portfolio2,
   portfolio3,
   portfolio4,
   portfolio5,
-  rectangle1,
-  rectangle2,
-  rectangle3,
-  rectangle4,
-  rectangle5,
-  rectangle6,
-  rectangle7,
-  rectangle8,
-  rectangle9,
 } from "../../assets";
 import baseColors from "../../constant";
+import { images } from "../../config/local-data";
+import PrimaryModal from "../../component/modal";
+import FancyBox from "../../component/fancy-box";
 
 export default function HomeSectionTwo() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <div className="container mx-auto py-8 px-2 my-5">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 divide-x  ">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 divide-x">
           <div className="flex flex-col justify-center items-center ">
             <img src={portfolio1} style={{ height: "24vh" }} />
             <h3 className="text-center">100% original Design</h3>
@@ -60,18 +64,26 @@ export default function HomeSectionTwo() {
         </p>
       </div>
       <div className="lg:container lg:mx-auto px-8 py-3">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-          <img src={rectangle1} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle2} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle3} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle4} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle5} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle6} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle7} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle8} style={{ height: "48vh", width: "100%" }} />
-          <img src={rectangle9} style={{ height: "48vh", width: "100%" }} />
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2"
+          onClick={handleOpenModal}
+        >
+          {images.map((x) => (
+            <>
+              <div key={x.id}>
+                <img
+                  src={x.imageName}
+                  style={{ height: "48vh", width: "100%" }}
+                />
+              </div>
+            </>
+          ))}
+          <div></div>
         </div>
       </div>
+      <PrimaryModal open={isModalOpen} close={handleCloseModal}>
+        <FancyBox />
+      </PrimaryModal>
     </>
   );
 }

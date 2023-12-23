@@ -4,6 +4,7 @@ import baseColors from "../../constant";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { FiMenu } from "react-icons/fi";
 import PackageModal from "../package-model";
+import BookModal from "../book-modal";
 
 export default function AppHeader() {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -81,7 +82,7 @@ export default function AppHeader() {
                   />
                 </li>
                 <li className="nav-item">
-                  <PackageModal title="Book Demo" />
+                  <BookModal title="Book Demo" />
                 </li>
               </ul>
             </div>

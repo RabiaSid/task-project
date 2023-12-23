@@ -8,7 +8,7 @@ export default function HomeSectionOne() {
   return (
     <div className="md:container md:mx-auto py-6 my-5">
       <div className="grid grid-cols-4 lg:grid-cols-6 gap-2 items-stretch">
-        <div className="p-5 col-span-4 lg:col-span-3 self-center">
+        <div className="p-5 col-span-3 lg:col-span-3 self-center">
           <h2 className="Roboto-Slab font-medium">
             Payments tool for companies
           </h2>
@@ -48,8 +48,8 @@ export default function HomeSectionOne() {
             </div>
           </div>
         </div>
-        <div className="pt-5 hidden  sm:block">
-          <img src={salePrice} style={{ height: "27vh" }} />
+        <div className="pt-5 ">
+          <img src={salePrice} style={{ maxHeight: "27vh" }} />
         </div>
         <div className="background-image-1 col-span-2 hidden lg:block"></div>
       </div>
